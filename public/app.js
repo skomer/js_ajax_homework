@@ -20,6 +20,14 @@ var requestComplete = function() {
     populateList(albums);
 }
 
+var populateList = function(albums) {
+    var ulTag = document.getElementById('list-albums');
+
+    for (var i = 0; i < albums.length; i++) {
+        addAlbum(albums[i]);
+    }
+}
+
 
 
 
