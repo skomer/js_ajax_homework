@@ -29,7 +29,16 @@ var populateList = function(ulTag, albums) {
 
 var addAlbum = function(ulTag, album) {
     var liTag = document.createElement('li');
-    liTag.innerText = album.name;
+    //var spanTag = document.createElement('span');
+    var pTag = document.createElement('p');
+    var imgTag = document.createElement('img');
+    //var br = document.createElement('br');
+    imgTag.src = album.images[2].url;
+    pTag.innerText = album.name;
+    liTag.appendChild(imgTag);
+    liTag.appendChild(pTag);
+    //spanTag.appendChild(br);
+    //liTag.appendChild(spanTag);
     ulTag.appendChild(liTag);
 }
 
