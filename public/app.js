@@ -17,20 +17,21 @@ var requestComplete = function() {
 
     var jsonString = this.responseText;
     var albums = JSON.parse(jsonString);
-    populateList(albums);
+    var ulTag = document.getElementById('list-albums');
+    populateList(ulTag, albums);
 }
 
-var populateList = function(albums) {
-    var ulTag = document.getElementById('list-albums');
-
-    for (var i = 0; i < albums.length; i++) {
-        addAlbum(albums[i]);
+var populateList = function(ulTag, albums) {
+    for (var i = 0; i < albums.albums.items.length; i++) {
+        addAlbum(ulTag, albums.albums.items[i]);
     }
 }
 
-
-
-
+var addAlbum = function(ulTag, album) {
+    var liTag = document.createElement('li');
+    liTag.innerText = album.name;
+    ulTag.appendChild(liTag);
+}
 
 
 
